@@ -295,18 +295,18 @@ export default function Develop() {
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
-                <div className="text-gray-600">
+                <div className="text-gray-600 dark:text-gray-300">
                   <p>
                     将{" "}
-                    <span className="px-1 py-0.5 bg-gray-100 rounded text-sm font-mono">
+                    <span className="px-1 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-sm font-mono">
                       .ply
                     </span>{" "}
                     或{" "}
-                    <span className="px-1 py-0.5 bg-gray-100 rounded text-sm font-mono">
+                    <span className="px-1 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-sm font-mono">
                       .splat
                     </span>{" "}
                     格式的 3D 模型文件转换为更高效的{" "}
-                    <span className="px-1 py-0.5 bg-gray-100 rounded text-sm font-mono">
+                    <span className="px-1 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-sm font-mono">
                       .ksplat
                     </span>{" "}
                     格式，以便在 HairVision 平台上获得更好的加载性能和渲染效果。
@@ -504,10 +504,10 @@ export default function Develop() {
               <h3 className="text-lg font-semibold">格式说明</h3>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-600">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-600 dark:text-gray-300">
                 <div>
                   <h4 className="font-medium mb-1">
-                    <span className="px-1 py-0.5 bg-gray-100 rounded text-sm font-mono">
+                    <span className="px-1 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-sm font-mono">
                       .ply
                     </span>{" "}
                     格式
@@ -519,7 +519,7 @@ export default function Develop() {
                 </div>
                 <div>
                   <h4 className="font-medium mb-1">
-                    <span className="px-1 py-0.5 bg-gray-100 rounded text-sm font-mono">
+                    <span className="px-1 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-sm font-mono">
                       .splat
                     </span>{" "}
                     格式
@@ -531,7 +531,7 @@ export default function Develop() {
                 </div>
                 <div>
                   <h4 className="font-medium mb-1">
-                    <span className="px-1 py-0.5 bg-gray-100 rounded text-sm font-mono">
+                    <span className="px-1 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-sm font-mono">
                       .ksplat
                     </span>{" "}
                     格式
@@ -575,7 +575,7 @@ export default function Develop() {
                     <h4 className="font-semibold text-base mb-1 text-black dark:text-white">
                       {item.q}
                     </h4>
-                    <p className="text-sm leading-relaxed">{item.a}</p>
+                    <p className="text-sm leading-relaxed dark:text-gray-300">{item.a}</p>
                   </div>
                 ))}
               </div>

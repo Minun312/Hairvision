@@ -247,78 +247,73 @@ export default function Run3dgs() {
         </header>
         <div className="container mx-auto p-4 space-y-4">
           <Card>
-            <CardHeader>
-              <CardTitle>
-                <h3 className="text-lg font-semibold">运行UniHair</h3>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-left space-y-4">
-                <p>上传一张图像，生成两个阶段的文件：</p>
-                <div className="flex items-center space-x-4">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-black-600 space-x-8 text-left">
-                      Enhance
-                    </span>
-                    <Badge variant="outline" className="font-mono">
-                      .ply
-                    </Badge>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-black-600 space-x-8 text-left">
-                      Refine
-                    </span>
-                    <Badge variant="outline" className="font-mono">
-                      .ply
-                    </Badge>
-                  </div>
+          <CardHeader>
+            <CardTitle>
+              <h3 className="text-lg font-semibold">运行Unihair</h3>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-left space-y-4">
+              <p>上传一张图像，生成两个阶段的文件：</p>
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2">
+                  <span className="text-black-600 space-x-8 text-left">
+                    Enhance
+                  </span>
+                  <span className="px-1 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-sm font-mono">
+                    .ply
+                  </span>
                 </div>
               </div>
-
-              <div className="max-w-md mx-auto p-4 space-y-6">
-                <div className="flex items-center space-x-8">
-                  <Button
-                    variant="outline"
-                    onClick={() => fileInputRef.current?.click()}
-                    disabled={loading}
-                  >
-                    选择文件
-                  </Button>
-
-                  <Input
-                    type="text"
-                    value={fileName}
-                    className="max-w-xs"
-                    readOnly
-                  />
-
-                  <input
-                    type="file"
-                    className="hidden"
-                    accept="image/*"
-                    onChange={(e) => {
-                      const selectedFile = e.target.files?.[0] || null;
-                      setFile(selectedFile);
-                      setFileName(
-                        selectedFile ? selectedFile.name : "(未选择文件)"
-                      );
-                      setProcessingOutput([]);
-                      setShowOutput(false);
-                      setDownloadLinks(null);
-                      setError(null);
-                    }}
-                    ref={fileInputRef}
-                  />
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2">
+                  <span className="text-black-600 space-x-8 text-left">
+                    Refine
+                  </span>
+                  <span className="px-1 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-sm font-mono">
+                    .ply
+                  </span>
                 </div>
+              </div>
+            </div>
+            <div className="max-w-md mx-auto p-4 space-y-6">
+              <div className="flex items-center space-x-8">
+                <Button
+                  variant="theme-toggle"
+                  className="!bg-background/80 !border !border-input/80 !shadow-sm hover:!bg-accent/30 dark:hover:!bg-accent/20 !text-foreground"
+                  onClick={() => fileInputRef.current?.click()}
+                >
+                  选择文件
+                </Button>
+
+                <Input
+                  type="text"
+                  value={fileName}
+                  className="max-w-xs"
+                  readOnly
+                />
+
+                <input
+                  type="file"
+                  className="hidden"
+                  accept="image/*"
+                  onChange={(e) => {
+                    const selectedFile = e.target.files?.[0] || null;
+                    setFile(selectedFile);
+                    setFileName(
+                      selectedFile ? selectedFile.name : "(未选择文件)"
+                    );
+                  }}
+                  ref={fileInputRef}
+                />
+              </div>
 
                 <div className="flex justify-center space-x-4">
                   {!loading ? (
                     <>
                       <Button
                         variant="outline"
-                        className="flex gap-2"
+                        className="!bg-background/80 !border !border-input/80 !shadow-sm hover:!bg-accent/30 dark:hover:!bg-accent/20 !text-foreground"
                         onClick={() => handleUploadWithStream(false)}
                         disabled={!file || loading}
                       >
@@ -327,7 +322,7 @@ export default function Run3dgs() {
 
                       <Button
                         variant="outline"
-                        className="flex gap-2"
+                        className="!bg-background/80 !border !border-input/80 !shadow-sm hover:!bg-accent/30 dark:hover:!bg-accent/20 !text-foreground"
                         onClick={() => handleUploadWithStream(true)}
                         disabled={!file || loading}
                       >
@@ -338,7 +333,7 @@ export default function Run3dgs() {
                     <>
                       <Button
                         variant="destructive"
-                        className="flex gap-2"
+                        className="!bg-background/80 !border !border-input/80 !shadow-sm hover:!bg-accent/30 dark:hover:!bg-accent/20 !text-foreground"
                         onClick={cancelProcessing}
                       >
                         <StopCircle className="h-4 w-4" />
@@ -389,7 +384,7 @@ export default function Run3dgs() {
                       href={`http://127.0.0.1:5001${downloadLinks.enhance}`}
                       download
                     >
-                      <Button variant="default" className="text-primary">
+                      <Button variant="!bg-background/80 !border !border-input/80 !shadow-sm hover:!bg-accent/30 dark:hover:!bg-accent/20 !text-foreground" className="text-primary">
                         下载 Enhance 文件
                       </Button>
                     </a>
@@ -398,7 +393,7 @@ export default function Run3dgs() {
                       href={`http://127.0.0.1:5001${downloadLinks.refine}`}
                       download
                     >
-                      <Button variant="default" className="text-primary">
+                      <Button variant="!bg-background/80 !border !border-input/80 !shadow-sm hover:!bg-accent/30 dark:hover:!bg-accent/20 !text-foreground" className="text-primary">
                         下载 Refine 文件
                       </Button>
                     </a>
