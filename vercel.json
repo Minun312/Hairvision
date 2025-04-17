@@ -8,13 +8,7 @@
         ]
       }
     ],
-    "builds": [
-      {
-        "src": "backend.py",
-        "use": "@vercel/python"
-      }
-    ],
     "rewrites": [
-      { "source": "/(.*)", "destination": "backend.py" }
+      { "source": "/(.*)", "destination": "/" }
     ]
   }  
