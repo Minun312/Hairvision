@@ -137,7 +137,7 @@ export default function Classify() {
                 <p>"Straight"，"Wavy"，"curly"，"dreadlocks"，"kinky"</p>
               </div>
               <div className="text-black-600 space-x-8 text-left">
-                <p>中的一种，并显示每一类的推测概率</p>
+                <p>中的一种，并显示每一类的推测概率（在线网页无后端）</p>
               </div>
               <div className="flex items-center space-x-8">
                 <Button

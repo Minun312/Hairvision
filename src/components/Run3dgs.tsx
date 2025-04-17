@@ -254,7 +254,7 @@ export default function Run3dgs() {
           </CardHeader>
           <CardContent>
             <div className="text-left space-y-4">
-              <p>上传一张图像，生成两个阶段的文件：</p>
+              <p>上传一张图像，生成两个阶段的文件：（在线网页无后端）</p>
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
                   <span className="text-black-600 space-x-8 text-left">
