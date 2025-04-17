@@ -254,7 +254,9 @@ export default function Run3dgs() {
           </CardHeader>
           <CardContent>
             <div className="text-left space-y-4">
-              <p>上传一张图像，生成两个阶段的文件：（在线网页无后端）</p>
+              <div className="text-black-600 space-x-8 text-left">
+                <p>上传一张图像，生成两个阶段的文件</p>
+              </div>
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
                   <span className="text-black-600 space-x-8 text-left">
@@ -274,6 +276,12 @@ export default function Run3dgs() {
                     .ply
                   </span>
                 </div>
+              </div>
+              <div className="text-black-600 space-x-8 text-left">
+                <p>注：由于GPU资源限制和端口限制，在线网页不支持本地运行；本地网页不受影响</p>
+              </div>
+              <div className="text-black-600 space-x-8 text-left">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;远程运行仅作测试用途，需要对接端口6006的服务器</p>
               </div>
             </div>
             <div className="max-w-md mx-auto p-4 space-y-6">
