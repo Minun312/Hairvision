@@ -36,6 +36,34 @@ export default function Home() {
           </Breadcrumb>
         </header>
         <div className="container mx-auto p-4 space-y-4">
+        <Card>
+            <CardHeader>
+              <CardTitle>
+                <h3 className="text-lg font-semibold">Sidebar说明</h3>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-start gap-6">
+                <div className="flex-1 text-left space-y-2 ml-10">
+                  <p className="leading-relaxed">
+                    <li>示例模型：</li>提供了多种模型以供预览
+                  </p>
+                  <p className="leading-relaxed">
+                    <li>跑起来：</li>上传图像并运行Unihair，生成3d模型供下载
+                  </p>
+                  <p className="leading-relaxed">
+                    <li>发型分类：</li>上传图像分类发型
+                  </p>
+                  <p className="leading-relaxed">
+                    <li>优化文件格式：</li>上传点云文件，转换为更高效的格式，提升渲染性能
+                  </p>
+                  <p className="leading-relaxed">
+                    <li>KsplatViewer：</li>上传点云文件以在网页上预览3d模型
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
           <Card>
             <CardHeader>
               <CardTitle>
@@ -299,7 +327,7 @@ export default function Home() {
                   组长：吴镔 <a>minunplus312@gmail.com</a>
                 </p>
                 <p className="leading-relaxed">组员：倪泽远 张华轩</p>
-                <p className="leading-relaxed text-center">SIME of Sufe@2025</p>
+                <p className="leading-relaxed text-center">SIME@Sufe 2025</p>
               </div>
             </CardContent>
           </Card>
