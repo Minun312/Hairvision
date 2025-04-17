@@ -46,19 +46,19 @@ export default function Home() {
               <div className="flex items-start gap-6">
                 <div className="flex-1 text-left space-y-2 ml-10">
                   <p className="leading-relaxed">
-                    <li>示例模型：</li>提供了多种模型以供预览
+                    <li>示例模型：提供了多种模型以供预览</li>
                   </p>
                   <p className="leading-relaxed">
-                    <li>跑起来：</li>上传图像并运行Unihair，生成3d模型供下载
+                    <li>跑起来：上传图像并运行Unihair，生成3d模型供下载</li>
                   </p>
                   <p className="leading-relaxed">
-                    <li>发型分类：</li>上传图像分类发型
+                    <li>发型分类：上传图像分类发型</li>
                   </p>
                   <p className="leading-relaxed">
-                    <li>优化文件格式：</li>上传点云文件，转换为更高效的格式，提升渲染性能
+                    <li>优化文件格式：上传点云文件，转换为更高效的格式，提升渲染性能</li>
                   </p>
                   <p className="leading-relaxed">
-                    <li>KsplatViewer：</li>上传点云文件以在网页上预览3d模型
+                    <li>KsplatViewer：上传点云文件以在网页上预览3d模型</li>
                   </p>
                 </div>
               </div>
