@@ -1,0 +1,22 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "include": ["src", "src/types"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "noEmit": false,
+    "skipLibCheck": true,
+    "strict": false,
+    "typeRoots": ["./node_modules/@types", "./src/types"]
+  }
+}
