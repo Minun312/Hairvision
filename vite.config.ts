@@ -20,8 +20,16 @@ export default defineConfig({
   ],
   server: {
     proxy: {
-      "/classify": "http://127.0.0.1:5000",
-      "/unihair": "http://127.0.0.1:5001",
+      "/classify": {
+        target: "http://127.0.0.1:5000",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/classify/, ""),
+      },
+      "/unihair": {
+        target: "http://127.0.0.1:5001",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/classify/, ""),
+      },
     },
   },
   resolve: {

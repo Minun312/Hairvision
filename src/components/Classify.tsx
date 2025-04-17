@@ -22,7 +22,11 @@ export default function Classify() {
   const [file, setFile] = useState(null);
   const [result, setResult] = useState("");
   const [fileName, setFileName] = useState("(未选择文件)");
+  const [loading, setLoading] = useState(false);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
+
+  const localServerUrl = "http://127.0.0.1:5000";
+  const remoteServerUrl = "http://127.0.0.1:6005";
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -34,53 +38,70 @@ export default function Classify() {
     setResult("");
   };
 
-  const handleUpload = async () => {
-    if (!file) return;
-    const formData = new FormData();
-    formData.append("file", file);
-
-    const res = await fetch("http://127.0.0.1:5000/classify", {
-      method: "POST",
-      body: formData,
-    });
-
-    if (!res.ok) {
-      console.error("请求失败:", res.statusText);
-      setResult("上传失败，请稍后再试。");
+  const handleClassify = async (serverUrl, isRemote = false) => {
+    if (!file) {
+      setResult("请先选择一个文件");
       return;
     }
 
-    const data = await res.json();
+    setLoading(true);
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
 
-    if (data) {
-      const entries = Object.entries(data);
-      const maxEntry = entries.reduce(
-        (max, current) => (current[1] > max[1] ? current : max),
-        ["", 0]
-      );
-      const [maxClass, maxProb] = maxEntry;
+      const res = await fetch(`${serverUrl}/classify`, {
+        method: "POST",
+        body: formData,
+      });
 
-      setResult(
-        <>
-          <div>预测结果：</div>
-          <div>
-            最高概率类别：
-            <strong>
-              {maxClass} ({(maxProb * 100).toFixed(2)}%)
-            </strong>
-          </div>
-          <hr style={{ margin: "5px 0" }} />
-          {entries.map(([className, prob]) => (
-            <div key={className}>
-              {className}: {(prob * 100).toFixed(2)}%
+      if (!res.ok) {
+        console.error("请求失败:", res.statusText);
+        setResult(`${isRemote ? "远程" : "本地"}上传失败，请稍后再试。`);
+        return;
+      }
+
+      const data = await res.json();
+
+      if (data) {
+        const entries = Object.entries(data);
+        const maxEntry = entries.reduce(
+          (max, current) => (current[1] > max[1] ? current : max),
+          ["", 0]
+        );
+        const [maxClass, maxProb] = maxEntry;
+
+        setResult(
+          <>
+            <div>{isRemote ? "远程" : "本地"}预测结果：</div>
+            <div>
+              最高概率类别：
+              <strong>
+                {maxClass} ({(maxProb * 100).toFixed(2)}%)
+              </strong>
             </div>
-          ))}
-        </>
-      );
-    } else {
-      setResult("无法获取预测结果");
+            <hr style={{ margin: "5px 0" }} />
+            {entries.map(([className, prob]) => (
+              <div key={className}>
+                {className}: {(prob * 100).toFixed(2)}%
+              </div>
+            ))}
+          </>
+        );
+      } else {
+        setResult(`无法获取${isRemote ? "远程" : "本地"}预测结果`);
+      }
+    } catch (error) {
+      console.error(`${isRemote ? "远程" : "本地"}分类请求错误:`, error);
+      setResult(`${isRemote ? "远程" : "本地"}分类请求出错，请检查网络连接`);
+    } finally {
+      setLoading(false);
     }
   };
+
+  const handleLocalClassify = () => handleClassify(localServerUrl, false);
+
+  const handleRemoteClassify = () => handleClassify(remoteServerUrl, true);
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -142,14 +163,35 @@ export default function Classify() {
                 />
               </div>
               <div className="space-y-6 p-4 max-w-2xl mx-auto">
-                <Button
-                  variant="theme-toggle"
-                  className="!bg-background/80 !border !border-input/80 !shadow-sm hover:!bg-accent/30 dark:hover:!bg-accent/20 !text-foreground"
-                  onClick={() => handleUpload()}
-                >
-                  分类
-                </Button>
-                {result && <p>{result}</p>}
+                <div className="flex justify-center space-x-4">
+                  <Button
+                    variant="theme-toggle"
+                    className="!bg-background/80 !border !border-input/80 !shadow-sm hover:!bg-accent/30 dark:hover:!bg-accent/20 !text-foreground"
+                    onClick={handleLocalClassify}
+                    disabled={loading}
+                  >
+                    {loading ? "处理中..." : "本地分类"}
+                  </Button>
+
+                  <Button
+                    variant="theme-toggle"
+                    className="!bg-background/80 !border !border-input/80 !shadow-sm hover:!bg-accent/30 dark:hover:!bg-accent/20 !text-foreground"
+                    onClick={handleRemoteClassify}
+                    disabled={loading}
+                  >
+                    {loading ? "处理中..." : "远程分类"}
+                  </Button>
+                </div>
+
+                {loading && (
+                  <div className="flex justify-center items-center mt-4">
+                    <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-primary"></div>
+                  </div>
+                )}
+
+                {result && (
+                  <div className="mt-4 p-4 border rounded">{result}</div>
+                )}
               </div>
             </div>
           </CardContent>

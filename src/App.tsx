@@ -12,6 +12,7 @@ import Stright from "./modelEx/Stright";
 import Wavy from "./modelEx/Wavy";
 import Kinky2 from "./modelEx/Kinky2";
 import Wavy2 from "./modelEx/Wavy2";
+import Stright2 from "./modelEx/Stright2";
 
 import Develop from "./components/Develop";
 import Classify from "./components/Classify";
@@ -35,6 +36,7 @@ function App() {
           <Route path="/Wavy" element={<Wavy />} />
           <Route path="/Kinky2" element={<Kinky2 />} />
           <Route path="/Wavy2" element={<Wavy2 />} />
+          <Route path="/Stright2" element={<Stright2 />} />
 
           <Route path="/Develop" element={<Develop />} />
           <Route path="/Classify" element={<Classify />} />

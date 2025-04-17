@@ -36,6 +36,11 @@ const demoData = [
     page: "kinky2",
   },
   { title: "Wavy 波浪发 2", image: "/assets/images/wavy2.jpg", page: "wavy2" },
+  {
+    title: "Stright 直发 2",
+    image: "/assets/images/stright2.jpg",
+    page: "stright2",
+  },
 ];
 
 export default function ModelEx() {
@@ -67,7 +72,7 @@ export default function ModelEx() {
             </CardHeader>
             <CardContent>
               <div className="text-black-600 space-x-8 text-left ">
-                <p>有5类不同的发型可供预览，共7个示例模型</p>
+                <p>有5类不同的发型可供预览，共8个示例模型</p>
               </div>
               <div className="container mx-auto p-4 space-y-4"></div>
               <div className="grid gap-4 md:grid-cols-2">
