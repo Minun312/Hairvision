@@ -139,6 +139,12 @@ export default function Classify() {
               <div className="text-black-600 space-x-8 text-left">
                 <p>中的一种，并显示每一类的推测概率（在线网页无后端）</p>
               </div>
+              <div className="text-black-600 space-x-8 text-left">
+                <p>注：由于GPU资源限制和端口限制，在线网页不支持本地运行；本地网页不受影响</p>
+              </div>
+              <div className="text-black-600 space-x-8 text-left">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;远程运行仅作测试用途，需要对接端口6005的服务器</p>
+              </div>
               <div className="flex items-center space-x-8">
                 <Button
                   variant="theme-toggle"
