@@ -44,7 +44,7 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <div className="flex items-start gap-6">
-                <div className="flex-1 text-left space-y-2 ml-10">
+                <div className="flex-1 text-left space-y-2">
                   <p className="leading-relaxed">
                     <li>示例模型：提供了多种模型以供预览</li>
                   </p>
