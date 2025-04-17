@@ -25,22 +25,22 @@ const demoData = [
   },
   { title: "Kinky 爆炸发", image: "/assets/images/kinky.jpg", page: "kinky" },
   {
-    title: "Stright 直发",
-    image: "/assets/images/stright.jpg",
-    page: "stright",
-  },
-  { title: "Wavy 波浪发", image: "/assets/images/wavy.jpg", page: "wavy" },
-  {
     title: "Kinky 波浪发 2",
     image: "/assets/images/kinky2.jpg",
     page: "kinky2",
   },
-  { title: "Wavy 波浪发 2", image: "/assets/images/wavy2.jpg", page: "wavy2" },
+  {
+    title: "Stright 直发",
+    image: "/assets/images/stright.jpg",
+    page: "stright",
+  },
   {
     title: "Stright 直发 2",
     image: "/assets/images/stright2.jpg",
     page: "stright2",
   },
+  { title: "Wavy 波浪发", image: "/assets/images/wavy.jpg", page: "wavy" },
+  { title: "Wavy 波浪发 2", image: "/assets/images/wavy2.jpg", page: "wavy2" },
 ];
 
 export default function ModelEx() {
