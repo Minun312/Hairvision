@@ -285,7 +285,7 @@ export default function Run3dgs() {
               </div>
             </div>
             <div className="max-w-md mx-auto p-4 space-y-6">
-              <div className="flex items-center space-x-8">
+              <div className="flex space-x-8">
                 <Button
                   variant="theme-toggle"
                   className="!bg-background/80 !border !border-input/80 !shadow-sm hover:!bg-accent/30 dark:hover:!bg-accent/20 !text-foreground"
